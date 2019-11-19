@@ -27,6 +27,7 @@ query($id: ID!) {
     slides(sortBy: "_sortOrder", order: ASC) {
       name
       parentId
+      backgroundColor
       backgroundImage {
         _url
       }
@@ -40,8 +41,6 @@ query($id: ID!) {
         contentTypeAlias
         text
         size
-        language
-        code
       }
     }
   }
@@ -76,8 +75,9 @@ export default {
 		getBackgroundStyles(slide) {
 			if (slide.backgroundImage) {
 				return {
+					backgroundColor: slide.backgroundColor,
 					backgroundImage: `url(${slide.backgroundImage._url}?width=1920&mode=crop&upscale=false)`,
-					backgroundPositionX: '50%',
+					backgroundPosition: slide.backgroundImageCover ? '50%' : undefined,
 					backgroundRepeat: 'no-repeat',
 					backgroundSize: slide.backgroundImageCover ? 'cover' : 'contain',
 					filter: slide.backgroundImageFilter,
