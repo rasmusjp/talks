@@ -40,7 +40,7 @@ query($id: ID!) {
       steps {
         contentTypeAlias
         text
-        size
+        level
       }
     }
   }
@@ -50,7 +50,7 @@ query($id: ID!) {
 <script>
 import BulletPoint from '~/components/BulletPoint.vue'
 import CodeBlock from '~/components/CodeBlock.vue'
-import Header from '~/components/Header.vue'
+import Heading from '~/components/Heading.vue'
 import MultiLineText from '~/components/MultiLineText.vue'
 import { Slideshow } from 'eagle.js'
 export default {
@@ -58,7 +58,7 @@ export default {
 	components: {
 		CodeBlock,
 		BulletPoint,
-		Header,
+		Heading,
 		MultiLineText,
 	},
 	methods: {
