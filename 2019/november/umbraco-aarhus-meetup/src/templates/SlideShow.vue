@@ -33,6 +33,7 @@ query($id: ID!) {
       }
       backgroundImageCover
       backgroundImageFilter
+      backgroundImagePosition
       textColor
       enterAnimation
       leaveAnimation
@@ -77,7 +78,7 @@ export default {
 				return {
 					backgroundColor: slide.backgroundColor,
 					backgroundImage: `url(${slide.backgroundImage._url}?width=1920&mode=crop&upscale=false)`,
-					backgroundPosition: slide.backgroundImageCover ? '50%' : undefined,
+					backgroundPosition: slide.backgroundImagePosition || 'center center',
 					backgroundRepeat: 'no-repeat',
 					backgroundSize: slide.backgroundImageCover ? 'cover' : 'contain',
 					filter: slide.backgroundImageFilter,
